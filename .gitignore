@@ -1,0 +1,13 @@
+# ****************************************** #
+# *  Author  : NTheme - All rights reserved
+# *  Created : 09 November 2024, 4:34 PM
+# *  File    : .gitignore.py
+# *  Project : Backup
+# ****************************************** #
+
+bin/
+build/
+cmake-build-debug/
+.idea/
+.vscode/
+.clang-format
