@@ -16,7 +16,8 @@
 namespace nt {
 
 CyberRestore::CyberRestore(int argc, const char** argv) {
-  if (argc == 1 && std::string(argv[1]) == "help") {
+  type = argv[1];
+  if (argc == 2 && type == "help") {
     std::cout << "Usage: my_restore [SOURCE] [DESTINATION] [OPTIONAL FLAGS]\n"
                  "A tool for restoring the backup of your files and folders from SOURCE timestamp name folder to DESTINATION"
                  " which was created by my_backup.\n"
@@ -35,12 +36,12 @@ CyberRestore::CyberRestore(int argc, const char** argv) {
     std::exit(0);
   }
 
-  if (argc > 1 && type == "help") {
+  if (argc > 2 && type == "help") {
     abort(static_cast<int>(std::errc::invalid_argument),
           "Use just 'my_restore help' without any extra arguments for more information.");
   }
 
-  if (argc == 1) {
+  if (argc == 2) {
     abort(static_cast<int>(std::errc::invalid_argument),
           "Missing a path of the entity to restore. Try 'my_restore help' for more information.");
   }

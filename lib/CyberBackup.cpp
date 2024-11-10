@@ -258,6 +258,7 @@ void CyberBackup::process() const noexcept {
       auto target_path = source_norm / relative_path;
 
       if (!fs::is_symlink(target_path) && !fs::exists(target_path)) {
+        success.emplace_back(target_path, "DELETE");
         sum_file << entry.path() << '\n';
       }
     }
